@@ -37,7 +37,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+.button {
     width: 100%;
     padding: 10px;
     background: #007BFF;
@@ -47,7 +47,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button:hover {
     background: #0056b3;
 }
 
