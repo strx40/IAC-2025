@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     // Простая проверка (в реальном проекте - запрос к серверу)
     if (username === 'admin' && password === '12345') {
         localStorage.setItem('isAuthenticated', 'true');
-        window.location.href = 'dashboard.html';
+        window.location.href = 'details.html';
     } else {
         alert('Неверный логин или пароль!');
     }
