@@ -99,3 +99,41 @@ img {
     margin: 15px 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* Стили для analytics.html */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.swot-card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.strength { background: rgba(46, 204, 113, 0.1); border-left: 4px solid #2ecc71; }
+.weakness { background: rgba(231, 76, 60, 0.1); border-left: 4px solid #e74c3c; }
+.opportunity { background: rgba(52, 152, 219, 0.1); border-left: 4px solid #3498db; }
+.threat { background: rgba(155, 89, 182, 0.1); border-left: 4px solid #9b59b6; }
+
+.marketing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.p-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.p-card h3 {
+    color: #3498db;
+    margin-top: 0;
+}
