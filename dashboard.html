@@ -2,23 +2,86 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>AnalyticHub - Главная</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalyticHub - Дашборд</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="navbar">
-        <a href="dashboard.html">Главная</a>
-        <a href="details.html">Подробности</a>
-        <a href="analytics.html">Аналитика</a>
-        <button class="logout-btn" onclick="logout()">Выйти</button>
-    </div>
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="dashboard.html">Дашборд</a>
+            <a href="details.html">Подробности</a>
+            <a href="analytics.html">Аналитика</a>
+            <button class="logout-btn" onclick="logout()">Выйти</button>
+        </div>
+    </nav>
     
-    <div class="container">
-        <h1>Информационно-аналитическая система AnalyticHub</h1>
-        <p>Платформа для прогнозирования рыночных трендов на основе данных из соцсетей.</p>
-        <img src="images/dashboard.png" alt="Пример дашборда" width="600">
-    </div>
-    
+    <main class="container">
+        <h1>📊 Дашборд AnalyticHub</h1>
+        
+        <!-- Статистика в реальном времени -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Обработано данных</h3>
+                <p class="stat-value">1,248,907</p>
+                <p class="stat-change">↑ 12% за сутки</p>
+            </div>
+            <div class="stat-card">
+                <h3>Активных пользователей</h3>
+                <p class="stat-value">1,042</p>
+                <p class="stat-change">↑ 3% за неделю</p>
+            </div>
+            <div class="stat-card">
+                <h3>Точность прогнозов</h3>
+                <p class="stat-value">89.7%</p>
+                <p class="stat-change">↑ 1.2%</p>
+            </div>
+        </div>
+
+        <!-- Графики -->
+        <div class="chart-row">
+            <div class="chart-container">
+                <h2>Активность по источникам</h2>
+                <canvas id="sourceChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Тональность контента</h2>
+                <canvas id="sentimentChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Таблица последних событий -->
+        <div class="recent-events">
+            <h2>Последние события</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Источник</th>
+                        <th>Событие</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:23</td>
+                        <td>Twitter</td>
+                        <td>Рост упоминаний "AI"</td>
+                        <td class="status-success">Анализ завершён</td>
+                    </tr>
+                    <tr>
+                        <td>09:47</td>
+                        <td>Reddit</td>
+                        <td>Новый тренд в /r/technology</td>
+                        <td class="status-processing">В обработке</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
     <script src="js/router.js"></script>
 </body>
 </html>
