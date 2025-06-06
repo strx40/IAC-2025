@@ -1,31 +1,39 @@
-/**
- * Простой роутер для навигации между страницами
- * + проверка авторизации
- */
-
-// Проверяем авторизацию при загрузке любой страницы (кроме index.html)
-if (!window.location.pathname.endsWith('index.html') {
-    const isAuth = localStorage.getItem('isAuthenticated') === 'true';
-    if (!isAuth) {
-        window.location.href = 'index.html';
+// Проверка авторизации
+function checkAuth() {
+    const publicPages = ['/index.html', '/'];
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    if (!publicPages.includes(currentPage)) {
+        const isAuth = localStorage.getItem('isAuthenticated') === 'true';
+        if (!isAuth) {
+            window.location.href = 'index.html';
+        }
     }
 }
 
-// Навигационное меню (общее для всех страниц)
-document.addEventListener('DOMContentLoaded', function() {
-    // Добавляем активный класс к текущей странице
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.navbar a');
+// Подсветка активной страницы
+function setActiveLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'dashboard.html';
+    const links = document.querySelectorAll('.navbar a');
     
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
-});
+}
 
-// Логика выхода из системы (добавьте кнопку в navbar при необходимости)
+// Выход из системы
 function logout() {
     localStorage.removeItem('isAuthenticated');
     window.location.href = 'index.html';
 }
+
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    checkAuth();
+    setActiveLink();
+});
